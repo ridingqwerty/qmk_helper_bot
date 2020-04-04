@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
 const logger = require('winston');
-const { MessageHandler } = require('discord-message-handler');
-const handler = new MessageHandler();
 
 // Configure logger settings
 logger.remove(logger.transports.Console);
@@ -13,7 +11,11 @@ logger.level = 'debug';
 // Initialize Discord Bot
 const bot = new Discord.Client();
 const config = require("./config.json");
+const mySwitch = require("./docswitch.js");
+//import { docsSwitch } from './docswitch.js';
 
+/*
+// HOW TO MODULARIZE THIS MONSTROSITY
 const docsSwitch = (docs) => ({
   "newbs": "newbs",
   "setup": "newbs_getting_started",
@@ -95,6 +97,7 @@ const docsSwitch = (docs) => ({
   "understanding-matrix": "how_a_matrix_works",
   "understanding-qmk": "understanding_qmk"
 })[docs];
+*/
 
 var cooldown = [];
 
@@ -139,19 +142,11 @@ bot.on('message', message => {
   // Bot ignores itself while it talks
   if(message.author.bot) return;
 
-/*
-  // Bot politely declines PMs (for now)
-  if(message.channel.type === "dm") {
-    message.author.send("Sorry, can't talk now.");
-    return;
-  };
-*/
-
   // Debug info
   logger.info('Message:\t' + message.content);
   logger.info('------------------------');
 
-  if (message.content.substring(0,1) == prefix) {
+  if (message.content.substring(0,1) == config.prefix) {
 
     // commands
     //var args = message.content.toLowerCase().substring(1).split(/ +/g);
@@ -160,7 +155,8 @@ bot.on('message', message => {
     logger.info('CMD:\t' + cmd);
 
     args.forEach(function(item) {
-      doc = docsSwitch(item);
+      //doc = docsSwitch(item);
+      doc = mySwitch.docsSwitch(item);
       if (typeof doc !== 'undefined') {
 
         if(message.channel.type === "dm") {
@@ -178,19 +174,8 @@ bot.on('message', message => {
       }
     });
 
-    // switch statement here for leaderboard, points, etc
+    // switch statement here for help menu and links outside of docSwitch
     switch (cmd) {
-
-      case 'africa':
-        var channel = message.member.voiceChannel;
-        if (!channel) {
-          message.channel.sendMessage('You need to be in a voice channel to use this command.');
-          return console.error("The channel does not exist!"); 
-        }
-        if (!botChannel) {
-          joinChannel(channel);
-        }
-        break;
 
       // "help" menu is always PM'd to reduce cluttering the channel
       case 'help':
