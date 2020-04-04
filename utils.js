@@ -1,4 +1,4 @@
-//const docsSwitch = (docs) => ({
+// Object Literal alternative to switch/if-else mess
 module.exports.docsSwitch = (docs) => ({
   "newbs": "newbs",
   "setup": "newbs_getting_started",
@@ -81,40 +81,67 @@ module.exports.docsSwitch = (docs) => ({
   "understanding-qmk": "understanding_qmk"
 })[docs];
 
+// testing
+module.exports.msg = {
+  color: "344703",
+  header: "Use any of the following commands starting with '!' for more inforatmation",
+  footer: "I respond to DMs, too!"
+};
+
+// Formatted help message
 module.exports.helpmessage = [
   {
-    name: "for newbs",
-    value: "!newbs !building !flashing !testing !debugging"
+    name: "**New Users**",
+    value: "newbs building flashing testing debugging"
   },
   {
-    name: "faqs",
-    value: "!faq !faq-build !faq-debug !faq-keymap !glossary"
+    name: "**FAQs**",
+    value: "faq faq-build faq-debug faq-keymap glossary"
   },
   {
-    name: "building, flashing, drivers",
-    value: "!configurator !api !zadig !toolbox !flashing !flashing-bootloadhid !keymap !vagrant !ide-eclipse !ide-vscode !git !hand-wire !isp-flashing"
+    name: "**Building, Flashing, Drivers**",
+    value: "configurator api zadig toolbox flashing flashing-bootloadhid keymap vagrant ide-eclipse ide-vscode git hand-wire isp-flashing"
   },
   {
-    name: "cli",
-    value: "!cli !cli-configuration !cli-commands"
+    name: "**QMK CLI**",
+    value: "cli cli-configuration cli-commands"
   },
   {
-    name: "keycodes",
-    value: "!keycodes !keycodes-basic !keycodes-quantum !keycodes-advanced"
+    name: "**Keycodes**",
+    value: "keycodes keycodes-basic keycodes-quantum keycodes-advanced keycodes-shifted"
   },
   {
-    name: "advanced keycodes",
-    value: "!command !dynamic-macros !grave-escape !leader !mod-tap !macros !mouse-keys !space-cadet !keycodes-shifted"
+    name: "**Advanced Keycodes**",
+    value: "command dynamic-macros grave-escape leader mod-tap macros mouse-keys space-cadet keycodes-shifted"
   },
   {
-    name: "software features",
-    value: "!auto-shift !combos !debounce !key-lock !layers !one-shot-keys !pointing-device !swap-hands !tap-dance !tap-hold !terminal !unicode !wpm"
+    name: "**Software Features**",
+    value: "auto-shift combos debounce key-lock layers one-shot-keys pointing-device swap-hands tap-dance tap-hold terminal unicode wpm"
   },
   {
-    name: "hardware features",
-    value: "displays: !lcd !oled\nlighting: !backlight !led-matrix !rgblight !rbgmatrix\n!audio !bluetooth !bootmagic !custom-matrix !dip-switch !encoders !haptic-feedback !ctpc !ps2-mouse !split-keyboard !stenography !velocikey"
+    name: "**Hardware Features**",
+    value: "*Displays:* lcd oled\n*Lighting:* backlight led-matrix rgblight rbgmatrix\naudio bluetooth bootmagic custom-matrix dip-switch encoders haptic-feedback ctpc ps2-mouse split-keyboard stenography velocikey"
   },
   {
-    name: "others",
-    value: "!mcus !contributing !translating !config-options !understanding-keyboards !understand-matrix !understanding-qmk"
+    name: "**Other Information**",
+    value: "mcus contributing translating config-options understanding-keyboards understand-matrix understanding-qmk"
   }];
+
+// Cooldown buffer for commands
+module.exports.cooldown = [];
+
+// Docs baseurl
+module.exports.baseurl = 'https://docs.qmk.fm/#/';
+
+// Authorized roles
+module.exports.authroles = ['Directors', 'Collaborators'];
+
+// Parser
+module.exports.parse = function(string) {
+  return string.toLowerCase().substring(1).replace(/!/g, '').split(/ +/g);
+};
+
+module.exports.prefix = '!';
+
+module.exports.firmware = 'https://github.com/qmk/qmk_firmware/');
+module.exports.toolbox = 'https://github.com/qmk/qmk_toolbox/');
