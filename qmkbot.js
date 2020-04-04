@@ -11,8 +11,7 @@ logger.level = 'debug';
 // Initialize Discord Bot
 const bot = new Discord.Client();
 const config = require("./config.json");
-const mySwitch = require("./docswitch.js");
-//import { docsSwitch } from './docswitch.js';
+const utils = require("./utils.js");
 
 /*
 // HOW TO MODULARIZE THIS MONSTROSITY
@@ -137,7 +136,6 @@ const playAudio = (connection, audioUrl) => {
   });
 };
 
-const prefix = "!";
 bot.on('message', message => {
   // Bot ignores itself while it talks
   if(message.author.bot) return;
@@ -156,7 +154,7 @@ bot.on('message', message => {
 
     args.forEach(function(item) {
       //doc = docsSwitch(item);
-      doc = mySwitch.docsSwitch(item);
+      doc = utils.docsSwitch(item);
       if (typeof doc !== 'undefined') {
 
         if(message.channel.type === "dm") {
@@ -181,43 +179,7 @@ bot.on('message', message => {
       case 'help':
         message.author.send({embed: {
           color: 3447003,
-        fields: [{
-            name: "for newbs",
-            value: "!newbs !building !flashing !testing !debugging"
-          },
-          {
-            name: "faqs",
-            value: "!faq !faq-build !faq-debug !faq-keymap !glossary"
-          },
-          {
-            name: "building, flashing, drivers",
-            value: "!configurator !api !zadig !toolbox !flashing !flashing-bootloadhid !keymap !vagrant !ide-eclipse !ide-vscode !git !hand-wire !isp-flashing"
-          },
-          {
-            name: "cli",
-            value: "!cli !cli-configuration !cli-commands"
-          },
-          {
-            name: "keycodes",
-            value: "!keycodes !keycodes-basic !keycodes-quantum !keycodes-advanced"
-          },
-          {
-            name: "advanced keycodes",
-            value: "!command !dynamic-macros !grave-escape !leader !mod-tap !macros !mouse-keys !space-cadet !keycodes-shifted"
-          },
-          {
-            name: "software features",
-            value: "!auto-shift !combos !debounce !key-lock !layers !one-shot-keys !pointing-device !swap-hands !tap-dance !tap-hold !terminal !unicode !wpm"
-          },
-          {
-            name: "hardware features",
-            value: "displays: !lcd !oled\nlighting: !backlight !led-matrix !rgblight !rbgmatrix\n!audio !bluetooth !bootmagic !custom-matrix !dip-switch !encoders !haptic-feedback !ctpc !ps2-mouse !split-keyboard !stenography !velocikey"
-          },
-          {
-            name: "others",
-            value: "!mcus !contributing !translating !config-options !understanding-keyboards !understand-matrix !understanding-qmk"
-          },
-        ],
+        fields: utils.helpmessage
         }});
         break;
 
