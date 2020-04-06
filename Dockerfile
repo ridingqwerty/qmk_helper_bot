@@ -1,9 +1,8 @@
-FROM node:latest
+FROM node:alpine
 MAINTAINER George Koenig <george.g.koenig@gmail.com>
 
 # install npm
-RUN apt-get update && apt-get install --no-install-recommends -y \
-    nodejs
+RUN apk add --no-cache npm
 
 # create working directory
 RUN mkdir -p /qmk_helper_bot
