@@ -40,7 +40,7 @@ const helpmessage =  [
 // Construct plaintext help menu fallback
 var array = [];
 for (const [key, value] of helpmessage.entries()) {
-  array.push(helpmessage[key].name + "\n" + helpmessage[key].value + "\n");
+  array.push(`${helpmessage[key].name}\n${helpmessage[key].value}\n`);
 }
 plaintext = array.join("\n");
 
@@ -134,11 +134,11 @@ module.exports = {
   msg: {embed: {
     color: "344703",
     author: {
-      name: "Use any of the following commands starting with '!' for more inforatmation"
+      name: `Use any of the following commands starting with '!' for more inforatmation`
     },
     fields: helpmessage,
     footer: {
-      text: "I respond to DMs, too!"
+      text: `I respond to DMs, too!`
     },
   }},
 
@@ -154,11 +154,11 @@ module.exports = {
 
   // Parser
   parse: function(string) {
-    return string.toLowerCase().substring(1).replace(/!/g, '').split(/ +/g);
+    return string.toLowerCase().substring(1).replace(/[^a-z\-]+/g, '').split(/ +/g);
   },
 
   // Bare link constructor (inhibits embeds)
   bare: function(string) {
-    return '<' + string + '>';
+    return `<${string}>`;
   },
 };

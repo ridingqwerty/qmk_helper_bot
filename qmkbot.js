@@ -3,42 +3,52 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-// Include utils and config
-const config = require("./config.json");
-const utils = require("./utils.js");
+// Include config
+const token = require("./auth.json").token;
+
+// Import utils.js
+const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer} = require("./utils.js");
+let cooldown = require("./utils.js").cooldown;
 
 bot.on('ready', () => {
   // Reset cooldown every 30 seconds
   setInterval(() => {
-    utils.cooldown = [];
+    cooldown = [];
   }, 30000);
 });
 
+//const sender = { message, author };
+
 bot.on('message', message => {
+
+  // Destructure discord.js elements
+  const { content, author, channel, member} = message;
+  //({ content, author, channel, member}) => message;
+
   // Bot ignores itself while it talks
-  if(message.author.bot) return;
+  if(author.bot) return;
 
   // Input starts with '!'
-  if (message.content.substring(0,1) == utils.prefix) {
+  if (content.startsWith(prefix)) {
 
     // Parse commands
-    var args = utils.parse(message.content);
+    var args = parse(content);
     var cmd = args[0];
 
     args.forEach(function(item) {
-      doc = utils.docsSwitch(item);
+      doc = docsSwitch(item);
       if (typeof doc !== 'undefined') {
 
-        if(message.channel.type === "dm") {
-          message.author.send(utils.baseurl + doc);
+        if(channel.type === "dm") {
+          author.send(`${baseurl}${doc}`);
           return;
         };
 
-        if ((message.member.roles.some(r=>utils.authroles.includes(r.name))) && !utils.cooldown.includes(doc)) {
-          message.channel.send(utils.bare(utils.baseurl + doc));
-          utils.cooldown.push(doc);
+        if ((member.roles.some(r=>authroles.includes(r.name))) && !cooldown.includes(doc)) {
+          channel.send(bare(`${baseurl}${doc}`));
+          cooldown.push(doc);
         } else {
-          message.author.send(utils.baseurl + doc);
+          author.send(`${baseurl}${doc}`);
         }
       }
     });
@@ -49,25 +59,25 @@ bot.on('message', message => {
 
       // PM embedded help menu, with disclaimer for a plaintext fallback
       case 'help':
-        message.author.send(utils.msg);
-        message.author.send(utils.disclaimer);
+        author.send(msg);
+        author.send(disclaimer);
         break;
 
       case 'plain': // plaintext fallback
-        message.author.send(utils.plainhelp);
+        author.send(plainhelp);
         break;
 
       case 'potato': // PM a potato
-        message.author.send(':potato:');
+        author.send(':potato:');
         break;
 
       /*
       case 'toolbox': // Link to qmk_toolbox repo
-        message.channel.send(utils.bare(utils.toolbox));
+        channel.send(bare(toolbox));
         break;
 
       case 'qmk-firmware': // Link to qmk_firmware repo
-        message.channel.send(utils.bare(utils.firmware));
+        channel.send(bare(firmware));
         break;
       */
     }
@@ -75,4 +85,4 @@ bot.on('message', message => {
 });
 
 // Authenticate bot
-bot.login(config.token);
+bot.login(token);
