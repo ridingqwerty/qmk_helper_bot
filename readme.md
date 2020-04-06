@@ -18,3 +18,13 @@ Other users doing so will receive a PM of the documentation -- this is to preven
 The bot also responds to PMs directly, so users can interact with it privately if they would like.
 
 Any suggestions are welcome!
+
+Installation:
+
+```
+git clone https://github.com/ridingqwerty/qmk_helper_bot.git
+cd qmk_helper_bot
+[stage .env file containing TOKEN in working dir]
+docker build -t qmk-bot .
+docker run -d qmk-bot
+```
