@@ -22,7 +22,6 @@ bot.on('message', message => {
   if (message.content.substring(0,1) == utils.prefix) {
 
     // Parse commands
-    //var args = message.content.parse();
     var args = utils.parse(message.content);
     var cmd = args[0];
 
@@ -36,7 +35,7 @@ bot.on('message', message => {
         };
 
         if ((message.member.roles.some(r=>utils.authroles.includes(r.name))) && !utils.cooldown.includes(doc)) {
-          message.channel.send(utils.baseurl + doc);
+          message.channel.send(utils.bare(utils.baseurl + doc));
           utils.cooldown.push(doc);
         } else {
           message.author.send(utils.baseurl + doc);
@@ -47,28 +46,30 @@ bot.on('message', message => {
     // switch statement here for help menu and links outside of docSwitch
     switch (cmd) {
 
-      // "help" menu is always PM'd to reduce cluttering the channel
+
+      // PM embedded help menu, with disclaimer for a plaintext fallback
       case 'help':
-        // refactor me...
-        message.author.send({embed: {
-          color: utils.msg.color,
-          author: { name: utils.msg.header },
-          fields: utils.helpmessage,
-          footer: { text: utils.msg.footer },
-        }});
+        message.author.send(utils.msg);
+        message.author.send(utils.disclaimer);
+        break;
+
+      case 'plain': // plaintext fallback
+        message.author.send(utils.plainhelp);
         break;
 
       case 'potato': // PM a potato
         message.author.send(':potato:');
         break;
 
+      /*
       case 'toolbox': // Link to qmk_toolbox repo
-        message.channel.send(utils.toolbox);
+        message.channel.send(utils.bare(utils.toolbox));
         break;
 
       case 'qmk-firmware': // Link to qmk_firmware repo
-        message.channel.send(utils.firmware);
+        message.channel.send(utils.bare(utils.firmware));
         break;
+      */
     }
   }
 });
