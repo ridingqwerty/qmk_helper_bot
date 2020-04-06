@@ -4,7 +4,9 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 
 // Include config
-const token = require("./auth.json").token;
+//const token = require("./auth.json").token;
+require('dotenv').config();
+const token = process.env.TOKEN;
 
 // Import utils.js
 const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer} = require("./utils.js");
