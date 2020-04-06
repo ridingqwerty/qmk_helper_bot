@@ -24,7 +24,6 @@ bot.on('message', message => {
 
   // Destructure discord.js elements
   const { content, author, channel, member} = message;
-  //({ content, author, channel, member}) => message;
 
   // Bot ignores itself while it talks
   if(author.bot) return;
