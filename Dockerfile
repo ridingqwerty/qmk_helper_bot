@@ -8,12 +8,11 @@ RUN apk add --no-cache npm
 RUN mkdir -p /qmk_helper_bot
 WORKDIR /qmk_helper_bot
 
-# copy and install qmk_helper_bot
-COPY package.json /qmk_helper_bot
-RUN npm install
-
-# our bot
+# copy our bot to working directory
 COPY . /qmk_helper_bot
+
+# install qmk_helper_bot
+RUN npm install
 
 # start bot
 CMD ["node", "qmkbot.js"]
