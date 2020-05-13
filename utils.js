@@ -49,6 +49,7 @@ module.exports = {
 
   // Object Literal alternative to switch/if-else mess
   docsSwitch: (docs) => ({
+    "docs": "",
     "newbs": "newbs",
     "setup": "newbs_getting_started",
     "building": "newbs_building_firmware",

@@ -57,15 +57,16 @@ bot.on('message', message => {
     switch (cmd) {
 
 
-      // PM embedded help menu, with disclaimer for a plaintext fallback
+      // PM plaintext help menu
       case 'help':
-        author.send(msg);
-        author.send(disclaimer);
+        author.send(plainhelp);
+        //author.send(msg);
+        //author.send(disclaimer);
         break;
 
-      case 'plain': // plaintext fallback
-        author.send(plainhelp);
-        break;
+      //case 'plain': // plaintext fallback
+        //author.send(plainhelp);
+        //break;
 
       case 'potato': // PM a potato
         author.send(':potato:');
