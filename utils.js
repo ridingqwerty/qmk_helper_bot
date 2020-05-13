@@ -135,7 +135,7 @@ module.exports = {
   msg: {embed: {
     color: "344703",
     author: {
-      name: `Use any of the following commands starting with '!' for more inforatmation`
+      name: `Use any of the following commands starting with '!' for more information`
     },
     fields: helpmessage,
     footer: {
