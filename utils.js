@@ -2,39 +2,39 @@
 const helpmessage =  [
   {
     name: "**New Users**",
-    value: "newbs building flashing testing debugging"
+    value: "newbs, building, flashing, testing, debugging"
   },
   {
     name: "**FAQs**",
-    value: "faq faq-build faq-debug faq-keymap glossary"
+    value: "faq, faq-build, faq-debug, faq-keymap, glossary"
   },
   {
     name: "**Building, Flashing, Drivers**",
-    value: "configurator api zadig toolbox flashing flashing-bootloadhid keymap vagrant ide-eclipse ide-vscode git hand-wire isp-flashing"
+    value:, "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing"
   },
   {
     name: "**QMK CLI**",
-    value: "cli cli-configuration cli-commands"
+    value: "cli, cli-configuration, cli-commands"
   },
   {
     name: "**Keycodes**",
-    value: "keycodes keycodes-basic keycodes-quantum keycodes-advanced keycodes-shifted"
+    value: "keycodes, keycodes-basic, keycodes-quantum, keycodes-advanced, keycodes-shifted"
   },
   {
     name: "**Advanced Keycodes**",
-    value: "command dynamic-macros grave-escape leader mod-tap macros mouse-keys space-cadet keycodes-shifted"
+    value: "command, dynamic-macros, grave-escape, leader, mod-tap, macros, mouse-keys, space-cadet, keycodes-shifted"
   },
   {
     name: "**Software Features**",
-    value: "auto-shift combos debounce key-lock layers one-shot-keys pointing-device swap-hands tap-dance tap-hold terminal unicode wpm"
+    value: "auto-shift, combos, debounce, key-lock, layers, one-shot-keys, pointing-device, swap-hands, tap-dance, tap-hold, terminal, unicode, wpm"
   },
   {
     name: "**Hardware Features**",
-    value: "*Displays:* lcd oled\n*Lighting:* backlight led-matrix rgblight rbgmatrix\naudio bluetooth bootmagic custom-matrix dip-switch encoders haptic-feedback ctpc ps2-mouse split-keyboard stenography velocikey"
+    value: "*Displays:* lcd, oled\n*Lighting:* backlight, led-matrix, rgblight, rbgmatrix\naudio, bluetooth, bootmagic, custom-matrix, dip-switch, encoders, haptic-feedback, ctpc, ps2-mouse, split-keyboard, stenography, velocikey"
   },
   {
     name: "**Other Information**",
-    value: "mcus contributing translating config-options understanding-keyboards understand-matrix understanding-qmk"
+    value: "mcus, contributing, translating, config-options, understanding-keyboards, understand-matrix, understanding-qmk"
   }];
 
 // Construct plaintext help menu fallback
