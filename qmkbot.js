@@ -8,7 +8,7 @@ require('dotenv').config();
 const token = process.env.TOKEN;
 
 // Import utils.js
-const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer} = require("./utils.js");
+const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit} = require("./utils.js");
 let cooldown = require("./utils.js").cooldown;
 
 bot.on('ready', () => {
@@ -69,6 +69,10 @@ bot.on('message', message => {
 
       case 'potato': // PM a potato
         author.send(':potato:');
+        break;
+
+      case 'ohshit': // PM a link to https://ohshitgit.com/
+        author.send(ohshitgit);
         break;
 
       /*

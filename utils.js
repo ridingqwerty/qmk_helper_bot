@@ -148,6 +148,7 @@ module.exports = {
   firmware: 'https://github.com/qmk/qmk_firmware/',
   toolbox: 'https://github.com/qmk/qmk_toolbox/',
   disclaimer: "If you don't see an embed, try `!plain`",
+  ohshitgit: 'https://ohshitgit.com/',
 
   cooldown: [],
   authroles: ['Directors', 'Collaborators'],
