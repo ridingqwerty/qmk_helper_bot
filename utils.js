@@ -2,7 +2,7 @@
 const helpmessage =  [
   {
     name: "**New Users**",
-    value: "newbs, building, flashing, testing, debugging"
+    value: "tutorial, building, flashing, testing, debugging"
   },
   {
     name: "**FAQs**",
@@ -30,7 +30,7 @@ const helpmessage =  [
   },
   {
     name: "**Hardware Features**",
-    value: "*Displays:* lcd, oled\n*Lighting:* backlight, led-matrix, rgblight, rbgmatrix\naudio, bluetooth, bootmagic, custom-matrix, dip-switch, encoders, haptic-feedback, ctpc, ps2-mouse, split-keyboard, stenography, velocikey"
+    value: "*Displays:* lcd, oled\n*Lighting:* backlight, led-matrix, rgblight, rgbmatrix\naudio, bluetooth, bootmagic, custom-matrix, dip-switch, encoders, haptic-feedback, ctpc, ps2-mouse, split-keyboard, stenography, velocikey"
   },
   {
     name: "**Other Information**",
@@ -51,6 +51,7 @@ module.exports = {
   docsSwitch: (docs) => ({
     "docs": "",
     "newbs": "newbs",
+    "tutorial": "newbs",
     "setup": "newbs_getting_started",
     "building": "newbs_building_firmware",
     "flashing": "newbs_flashing",
