@@ -76,6 +76,10 @@ bot.on('message', message => {
         author.send(ohshitgit);
         break;
 
+      case 'conduct': // PM a link to https://qmk.fm/coc/
+        channel.send(coc);
+        break;
+
       /*
       case 'toolbox': // Link to qmk_toolbox repo
         channel.send(bare(toolbox));
