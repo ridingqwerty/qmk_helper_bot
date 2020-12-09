@@ -34,7 +34,7 @@ const helpmessage =  [
   },
   {
     name: "**Other Information**",
-    value: "mcus, contributing, translating, config-options, understanding-keyboards, understand-matrix, understanding-qmk"
+    value: "mcus, contributing, translating, config-options, understanding-keyboards, understand-matrix, understanding-qmk, conduct"
   }];
 
 // Construct plaintext help menu fallback
@@ -151,6 +151,7 @@ module.exports = {
   toolbox: 'https://github.com/qmk/qmk_toolbox/',
   disclaimer: "If you don't see an embed, try `!plain`",
   ohshitgit: 'https://ohshitgit.com/',
+  coc: 'https://qmk.fm/coc/',
 
   cooldown: [],
   authroles: ['Directors', 'Collaborators'],
