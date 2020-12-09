@@ -34,7 +34,7 @@ const helpmessage =  [
   },
   {
     name: "**Other Information**",
-    value: "mcus, contributing, translating, config-options, understanding-keyboards, understand-matrix, understanding-qmk"
+    value: "mcus, contributing, translating, config-options, understanding-keyboards, understand-matrix, understanding-qmk, conduct"
   }];
 
 // Construct plaintext help menu fallback
