@@ -75,7 +75,6 @@ module.exports = {
     "flashing-bootloadhid": "flashing_bootloadhid",
     "ide-eclipse": "other_eclipse",
     "ide-vscode": "other_vscode",
-    "git": "newbs_git_best_practices",
     "hand-wire": "hand_wire",
     "isp-flashing": "isp_flashing_guide",
     "keycodes": "keycodes",
@@ -151,6 +150,8 @@ module.exports = {
   toolbox: 'https://github.com/qmk/qmk_toolbox/',
   disclaimer: "If you don't see an embed, try `!plain`",
   ohshitgit: 'https://ohshitgit.com/',
+  git: 'https://docs.qmk.fm/#/newbs_git_best_practices/',
+  xkcd: 'https://xkcd.com/1597/',
   coc: 'https://qmk.fm/coc/',
 
   cooldown: [],

@@ -8,7 +8,7 @@ require('dotenv').config();
 const token = process.env.TOKEN;
 
 // Import utils.js
-const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit, coc} = require("./utils.js");
+const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit, git, xkcd, coc} = require("./utils.js");
 let cooldown = require("./utils.js").cooldown;
 
 bot.on('ready', () => {
@@ -82,11 +82,16 @@ bot.on('message', message => {
         author.send(':potato:');
         break;
 
-      case 'ohshit': // PM a link to https://ohshitgit.com/
-        author.send(ohshitgit);
+      case 'ohshit': // send channel a link to https://ohshitgit.com/
+        channel.send(bare(ohshitgit));
         break;
 
-      case 'conduct': // PM a link to https://qmk.fm/coc/
+      case 'git': // send channel a link to QMK git best practices and xkcd #1597
+        channel.send(xkcd);
+        channel.send(bare(git));
+        break;
+
+      case 'conduct': // send channel a link to https://qmk.fm/coc/
         channel.send(coc);
         break;
 
