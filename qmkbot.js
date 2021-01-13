@@ -44,12 +44,22 @@ bot.on('message', message => {
           return;
         };
 
+	// commented out -- doc commands are being opened up to all members
+	/*
         if ((member.roles.some(r=>authroles.includes(r.name))) && !cooldown.includes(doc)) {
           channel.send(bare(`${baseurl}${doc}`));
           cooldown.push(doc);
         } else {
           author.send(`${baseurl}${doc}`);
         }
+	*/
+
+	// enforce 30 second cooldown on docs sent to channel
+	if (!cooldown.includes(doc)) {
+	  channel.send(bare(`${baseurl}${doc}`));
+	  cooldown.push(doc);
+	}
+
       }
     });
 
