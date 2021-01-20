@@ -152,6 +152,8 @@ module.exports = {
   ohshitgit: 'https://ohshitgit.com/',
   git: 'https://docs.qmk.fm/#/newbs_git_best_practices/',
   xkcd: 'https://xkcd.com/1597/',
+  promicro: 'https://i.imgur.com/wMNx2u6.png',
+  msys: 'https://msys.qmk.fm/',
   coc: 'https://qmk.fm/coc/',
 
   cooldown: [],
