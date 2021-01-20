@@ -10,7 +10,7 @@ const helpmessage =  [
   },
   {
     name: "**Building, Flashing, Drivers**",
-    value: "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing"
+    value: "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing, msys, promicro, protonc"
   },
   {
     name: "**QMK CLI**",
@@ -153,6 +153,7 @@ module.exports = {
   git: 'https://docs.qmk.fm/#/newbs_git_best_practices/',
   xkcd: 'https://xkcd.com/1597/',
   promicro: 'https://i.imgur.com/wMNx2u6.png',
+  protonc: 'https://i.imgur.com/nICqWLo.jpg',
   msys: 'https://msys.qmk.fm/',
   coc: 'https://qmk.fm/coc/',
 

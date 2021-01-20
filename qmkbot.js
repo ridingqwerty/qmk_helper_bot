@@ -8,7 +8,7 @@ require('dotenv').config();
 const token = process.env.TOKEN;
 
 // Import utils.js
-const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit, git, xkcd, promicro, msys, coc} = require("./utils.js");
+const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit, git, xkcd, promicro, protonc, msys, coc} = require("./utils.js");
 let cooldown = require("./utils.js").cooldown;
 
 bot.on('ready', () => {
@@ -97,6 +97,10 @@ bot.on('message', message => {
 
       case 'promicro': // send channel image of pro micro pinout
         channel.send({files:[promicro]});
+	break;
+
+      case 'protonc': // send channel image of pro micro pinout
+        channel.send({files:[protonc]});
 	break;
 
       case 'toolbox': // send channel link to qmk_toolbox repo
