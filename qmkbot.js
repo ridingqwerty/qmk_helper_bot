@@ -8,7 +8,7 @@ require('dotenv').config();
 const token = process.env.TOKEN;
 
 // Import utils.js
-const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit, git, xkcd, coc} = require("./utils.js");
+const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit, git, xkcd, promicro, msys, coc} = require("./utils.js");
 let cooldown = require("./utils.js").cooldown;
 
 bot.on('ready', () => {
@@ -95,15 +95,21 @@ bot.on('message', message => {
         channel.send(coc);
         break;
 
-      /*
-      case 'toolbox': // Link to qmk_toolbox repo
+      case 'promicro': // send channel image of pro micro pinout
+        channel.send({files:[promicro]});
+	break;
+
+      case 'toolbox': // send channel link to qmk_toolbox repo
         channel.send(bare(toolbox));
         break;
 
-      case 'qmk-firmware': // Link to qmk_firmware repo
+      case 'qmk-firmware': // send channel link to qmk_firmware repo
         channel.send(bare(firmware));
         break;
-      */
+
+      case 'msys': // send channel link to msys page
+        channel.send(bare(msys));
+	break;
     }
   }
 });
