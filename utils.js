@@ -2,7 +2,7 @@
 const helpmessage =  [
   {
     name: "**New Users**",
-    value: "tutorial, building, flashing, testing, debugging"
+    value: "tutorial, syllabus, building, flashing, testing, debugging"
   },
   {
     name: "**FAQs**",
@@ -10,7 +10,7 @@ const helpmessage =  [
   },
   {
     name: "**Building, Flashing, Drivers**",
-    value: "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing, msys, promicro, protonc"
+    value: "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing, msys, vid, vidq, promicro, protonc, elitec"
   },
   {
     name: "**QMK CLI**",
