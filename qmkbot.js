@@ -104,7 +104,7 @@ bot.on('message', message => {
 	break;
 
       case 'elitec': // send channel image of pro micro pinout
-        channel.send({files:[protonc]});
+        channel.send({files:[elitec]});
 	break;
 
       case 'toolbox': // send channel link to qmk_toolbox repo
