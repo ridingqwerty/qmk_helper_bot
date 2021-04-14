@@ -28,14 +28,19 @@ bot.on('message', message => {
   // Bot ignores itself while it talks
   if(author.bot) return;
 
+  // Sanitize hyphens
+  input = content.split('-').join('');
+
   // Input starts with '!'
-  if (content.startsWith(prefix)) {
+  if (input.startsWith(prefix)) {
 
     // Parse commands
-    var args = parse(content);
+    var args = parse(input);
     var cmd = args[0];
 
     args.forEach(function(item) {
+      //doc = docsSwitch(item);
+      //doc = docsSwitch(item).str.replace(/-/g, "");
       doc = docsSwitch(item);
       if (typeof doc !== 'undefined') {
 
@@ -111,7 +116,7 @@ bot.on('message', message => {
         channel.send(bare(toolbox));
         break;
 
-      case 'qmk-firmware': // send channel link to qmk_firmware repo
+      case 'qmkfirmware': // send channel link to qmk_firmware repo
         channel.send(bare(firmware));
         break;
 
