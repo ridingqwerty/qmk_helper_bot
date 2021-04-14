@@ -132,12 +132,10 @@ bot.on('message', message => {
         channel.send(bare(vidq));
 	break;
     }
+  
+    // Delete message
+    setTimeout(() => message.delete().catch(err => console.log(err)), 100); // testing
   }
-
-  // Delete message
-  //setTimeout(() => message.delete(), 100); // works but spits errors when trying to delete in DMs
-  //setTimeout(() => message.delete(), 100).catch("Cannot delete messages in DM channel"); // catch not method of setTimeout(), crashes bot
-  setTimeout(() => message.delete().catch(err => console.log(err)), 100); // testing
 });
 
 // Authenticate bot
