@@ -23,7 +23,7 @@ bot.on('ready', () => {
 bot.on('message', message => {
 
   // Destructure discord.js elements
-  const { content, author, channel, member} = message;
+  const { content, author, channel, member, id} = message;
 
   // Bot ignores itself while it talks
   if(author.bot) return;
@@ -104,11 +104,11 @@ bot.on('message', message => {
         channel.send({files:[promicro]});
 	break;
 
-      case 'protonc': // send channel image of pro micro pinout
+      case 'protonc': // send channel image of proton c pinout
         channel.send({files:[protonc]});
 	break;
 
-      case 'elitec': // send channel image of pro micro pinout
+      case 'elitec': // send channel image of elite c pinout
         channel.send({files:[elitec]});
 	break;
 
@@ -124,15 +124,20 @@ bot.on('message', message => {
         channel.send(bare(msys));
 	break;
       
-      case 'vid': // send channel link to msys page
+      case 'vid': // send channel link to USB usage page
         channel.send(bare(vid));
 	break;
 
-      case 'vidq': // send channel link to msys page
+      case 'vidq': // send channel link to VID/PID query
         channel.send(bare(vidq));
 	break;
     }
   }
+
+  // Delete message
+  //setTimeout(() => message.delete(), 100); // works but spits errors when trying to delete in DMs
+  //setTimeout(() => message.delete(), 100).catch("Cannot delete messages in DM channel"); // catch not method of setTimeout(), crashes bot
+  setTimeout(() => message.delete().catch(err => console.log(err)), 100); // testing
 });
 
 // Authenticate bot
