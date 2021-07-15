@@ -158,6 +158,7 @@ module.exports = {
   elitec: 'https://i.imgur.com/WWnicKw.png',
   msys: 'https://msys.qmk.fm/',
   coc: 'https://qmk.fm/coc/',
+  kbdfans: 'Against our best advice, KBDfans have chosen a less than ideeal bootloader for their newer board revisions. You may have luck using <https://tinyurl.com/KBDFansFlashNew> for reference, but if you are still stuck you will have to visit KBDfans discord for support.',
   vid: 'https://yanfali.github.io/qmk_usb_usage/',
   vidq: 'https://www.the-sz.com/products/usbid/index.php',
 
