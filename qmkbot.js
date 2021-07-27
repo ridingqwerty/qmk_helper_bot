@@ -44,8 +44,24 @@ bot.on('message', message => {
       doc = docsSwitch(item);
       if (typeof doc !== 'undefined') {
 
+	// construct docSwitch embed
+	const docmsg = {
+	  color: 0x344703,
+	  fields: [
+	    {
+	      name: 'Try this:',
+	      value: `${baseurl}${doc}`,
+	    },
+	  ],
+	  footer: {
+	    icon_url: `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.png?size=256`,
+	    text: `${message.author.username} invoked !${doc}`,
+	  }
+	};
+
         if(channel.type === "dm") {
-          author.send(`${baseurl}${doc}`);
+          //author.send(`${baseurl}${doc}`);
+	  author.send({ embed: docmsg });
           return;
         };
 
@@ -61,21 +77,37 @@ bot.on('message', message => {
 
 	// enforce 30 second cooldown on docs sent to channel
 	if (!cooldown.includes(doc)) {
-	  channel.send(bare(`${baseurl}${doc}`));
+	  //channel.send(bare(`${baseurl}${doc}`));
+	  channel.send({ embed: docmsg });
 	  cooldown.push(doc);
 	}
 
       }
     });
 
+    /*
+    // construct embed for links outside of docSwitch
+    const cmdmsg = {
+      color: 0x344703,
+      footer: {
+         icon_url: `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.png?size=256`,
+         text: `${message.author.username} invoked !${cmd}`,
+      }
+    };
+    */
+
+    const cmdmsg = new Discord.MessageEmbed()
+      .setColor(0x344703)
+      .setFooter(`${message.author.username} invoked !${cmd}`, `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.png?size=256`);
+
+
     // switch statement here for help menu and links outside of docSwitch
     switch (cmd) {
 
-
       // PM plaintext help menu
       case 'help':
-        author.send(plainhelp);
-        //author.send(msg);
+        //author.send(plainhelp);
+        author.send(msg);
         //author.send(disclaimer);
         break;
 
@@ -88,52 +120,85 @@ bot.on('message', message => {
         break;
 
       case 'ohshit': // send channel a link to https://ohshitgit.com/
-        channel.send(bare(ohshitgit));
+        //channel.send(bare(ohshitgit));
+	cmdmsg.addFields({ name: "Try this:", value: ohshitgit });
+	channel.send(cmdmsg);
         break;
 
       case 'git': // send channel a link to QMK git best practices and xkcd #1597
-        channel.send(xkcd);
-        channel.send(bare(git));
+        //channel.send(xkcd);
+        //channel.send(bare(git));
+	cmdmsg.setImage(xkcd);
+	cmdmsg.addFields({ name: "Try this:", value: git });
+	channel.send(cmdmsg);
         break;
 
       case 'conduct': // send channel a link to https://qmk.fm/coc/
-        channel.send(coc);
+        //channel.send(coc);
+	cmdmsg.addFields({ name: "Review QMK Code of Conduct:", value: coc });
+	channel.send(cmdmsg);
         break;
 
       case 'kbdfans':
-        channel.send(kbdfans);
+        //channel.send(kbdfans);
+	cmdmsg.addFields({ name: "Dear KBDFans users:", value: kbdfans });
+	channel.send(cmdmsg);
 	break;
 
+      /*
       case 'promicro': // send channel image of pro micro pinout
         channel.send({files:[promicro]});
 	break;
+      */
+
+      case 'promicro': // send channel image of pro micro pinout
+	cmdmsg.setTitle("Pro Micro Pinout");
+	cmdmsg.setImage(promicro);
+	channel.send(cmdmsg);
+	break;
 
       case 'protonc': // send channel image of proton c pinout
-        channel.send({files:[protonc]});
+	cmdmsg.setTitle("Proton-C Pinout");
+	cmdmsg.setImage(protonc);
+	channel.send(cmdmsg);
+        //channel.send({files:[protonc]});
 	break;
 
       case 'elitec': // send channel image of elite c pinout
-        channel.send({files:[elitec]});
+	cmdmsg.setTitle("Elite-C Pinout");
+	cmdmsg.setImage(elitec);
+	channel.send(cmdmsg);
+        //channel.send({files:[elitec]});
 	break;
 
       case 'toolbox': // send channel link to qmk_toolbox repo
-        channel.send(bare(toolbox));
+        //channel.send(bare(toolbox));
+	cmdmsg.addFields({ name: "Get QMK Toolbox here:", value: toolbox });
+	channel.send(cmdmsg);
         break;
 
       case 'qmkfirmware': // send channel link to qmk_firmware repo
-        channel.send(bare(firmware));
+        //channel.send(bare(firmware));
+	cmdmsg.addFields({ name:  "QMK Firmware repository:", value: firmware });
+	channel.send(cmdmsg);
         break;
 
       case 'msys': // send channel link to msys page
-        channel.send(bare(msys));
+        //channel.send(bare(msys));
+	cmdmsg.addFields({ name:  "Get QMK MSYS here:", value: msys });
+	channel.send(cmdmsg);
 	break;
       
       case 'vid': // send channel link to USB usage page
-        channel.send(bare(vid));
+        //channel.send(bare(vid));
+	cmdmsg.addFields({ name:  "View USB usage page here", value: vid });
+	channel.send(cmdmsg);
 	break;
 
       case 'vidq': // send channel link to VID/PID query
-        channel.send(bare(vidq));
+        //channel.send(bare(vidq));
+	cmdmsg.addFields({ name:  "Query VID/PID usage here:", value: vidq });
+	channel.send(cmdmsg);
 	break;
     }
   

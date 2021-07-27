@@ -6,8 +6,8 @@
   "dependencies": {
     "discord-message-handler": "^2.0.1",
     "discord.io": "^2.5.3",
-    "discord.js": "^11.6.4",
-    "dotenv": "^8.2.0",
+    "discord.js": "^12.5.3",
+    "dotenv": "^8.6.0",
     "node-gyp": "^6.1.0"
   },
   "devDependencies": {},
