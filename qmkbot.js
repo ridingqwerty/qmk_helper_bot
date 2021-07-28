@@ -38,6 +38,9 @@ bot.on('message', message => {
     var args = parse(input);
     var cmd = args[0];
 
+    // Get user's nickname, or fall back to default username
+    var nick = (message.member === null)? message.author.username : message.member.displayName; 
+
     args.forEach(function(item) {
       //doc = docsSwitch(item);
       //doc = docsSwitch(item).str.replace(/-/g, "");
@@ -55,7 +58,7 @@ bot.on('message', message => {
 	  ],
 	  footer: {
 	    icon_url: `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.png?size=256`,
-	    text: `${message.author.username} invoked !${doc}`,
+	    text: `${nick} invoked !${doc}`,
 	  }
 	};
 
@@ -85,20 +88,9 @@ bot.on('message', message => {
       }
     });
 
-    /*
-    // construct embed for links outside of docSwitch
-    const cmdmsg = {
-      color: 0x344703,
-      footer: {
-         icon_url: `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.png?size=256`,
-         text: `${message.author.username} invoked !${cmd}`,
-      }
-    };
-    */
-
     const cmdmsg = new Discord.MessageEmbed()
       .setColor(0x344703)
-      .setFooter(`${message.author.username} invoked !${cmd}`, `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.png?size=256`);
+      .setFooter(`${nick} invoked !${cmd}`, `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.png?size=256`);
 
 
     // switch statement here for help menu and links outside of docSwitch
