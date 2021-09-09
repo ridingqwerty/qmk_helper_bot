@@ -137,6 +137,25 @@ bot.on('message', message => {
 	channel.send(cmdmsg);
 	break;
 
+      case 'lighting':
+        //channel.send(?)
+	cmdmsg.addFields(
+	  { name: "Backlight:", value: 'Single color, per key, not individually addressable (all on or off)' },
+	  { name: "RGBLight:", value: 'Underglow RBG, linear design (sinle chain), individually addressable' },
+	  { name: "LED Matrix:", value: 'Single color, per key, individually addressable' },
+	  { name: "RGB Matrix:", value: 'RGB, per key, individually addressable' },
+	  { name: "Indicators:", value: 'Scroll/Caps/Num Lock LEDs' },
+	)
+	channel.send(cmdmsg);
+	break;
+      /*
+	Backlight: Single color, per key, not individually addressable (all on or off)
+	RGBLight: Underglow RGB, linear design (single chain), individually addressable
+	LED Matrix: Single color, per key, individually addressable
+	RGB Matrix: RGB, per key, individually addressable
+	Indicators: Scroll/Caps/Num Lock LEDs
+      */
+
       /*
       case 'promicro': // send channel image of pro micro pinout
         channel.send({files:[promicro]});
