@@ -8,7 +8,7 @@ require('dotenv').config();
 const token = process.env.TOKEN;
 
 // Import utils.js
-const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit, git, xkcd, promicro, protonc, elitec, msys, coc, kbdfans, vid, vidq} = require("./utils.js");
+const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit, git, xkcd, promicro, protonc, elitec, blackpill, bluepill, msys, coc, kbdfans, lighting, vid, vidq} = require("./utils.js");
 let cooldown = require("./utils.js").cooldown;
 
 bot.on('ready', () => {
@@ -136,6 +136,12 @@ bot.on('message', message => {
 	cmdmsg.addFields({ name: "Dear KBDFans users:", value: kbdfans });
 	channel.send(cmdmsg);
 	break;
+  
+      case 'lighting':
+        //channel.send(lighting);
+  cmdmsg.addFields({ name: "Lighting options", value: lighting });
+  channel.send(cmdmsg);
+  break;
 
       /*
       case 'promicro': // send channel image of pro micro pinout
@@ -161,8 +167,19 @@ bot.on('message', message => {
 	cmdmsg.setImage(elitec);
 	channel.send(cmdmsg);
         //channel.send({files:[elitec]});
+  break;
+      case 'blackpill': // send channel image of blackpill pinout
+	cmdmsg.setTitle("Black Pill F4x1 Pinout");
+	cmdmsg.setImage(blackpill);
+	channel.send(cmdmsg);
+        //channel.send({files:[blackpill});
 	break;
-
+      case 'bluepill': // send channel image of bluepill pinout
+	cmdmsg.setTitle("Blue Pill F103 Pinout");
+	cmdmsg.setImage(bluepill);
+	channel.send(cmdmsg);
+        //channel.send({files:[bluepill});
+	break;
       case 'toolbox': // send channel link to qmk_toolbox repo
         //channel.send(bare(toolbox));
 	cmdmsg.addFields({ name: "Get QMK Toolbox here:", value: toolbox });

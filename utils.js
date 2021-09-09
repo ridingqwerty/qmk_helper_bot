@@ -10,7 +10,7 @@ const helpmessage =  [
   },
   {
     name: "**Building, Flashing, Drivers**",
-    value: "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing, msys, vid, vidq, promicro, protonc, elitec"
+    value: "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing, msys, vid, vidq, promicro, protonc, elitec, blackpill, bluepill"
   },
   {
     name: "**QMK CLI**",
@@ -26,7 +26,7 @@ const helpmessage =  [
   },
   {
     name: "**Software Features**",
-    value: "auto-shift, combos, debounce, key-lock, layers, one-shot-keys, pointing-device, swap-hands, tap-dance, tap-hold, terminal, unicode, wpm"
+    value: "auto-shift, combos, debounce, key-lock, key-overrides, layers, one-shot-keys, pointing-device, swap-hands, tap-dance, tap-hold, terminal, unicode, wpm"
   },
   {
     name: "**Hardware Features**",
@@ -34,7 +34,7 @@ const helpmessage =  [
   },
   {
     name: "**Other Information**",
-    value: "mcus, contributing, translating, config-options, understanding-keyboards, understanding-matrix, understanding-qmk, conduct"
+    value: "lighting, mcus, contributing, translating, config-options, understanding-keyboards, understanding-matrix, understanding-qmk, conduct"
   }];
 
 // Construct plaintext help menu fallback
@@ -95,6 +95,7 @@ module.exports = {
     "combos": "feature_combo",
     "debounce": "feature_debounce_type",
     "keylock": "feature_key_lock",
+    "keyoverrides": "feature_key_overrides",
     "layers": "feature_layers",
     "oneshotkeys": "one_shot_keys",
     "pointingdevice": "feature_pointing_device",
@@ -157,11 +158,14 @@ module.exports = {
   promicro: 'https://i.imgur.com/GsrDNHK.png',
   protonc: 'https://i.imgur.com/nICqWLo.jpg',
   elitec: 'https://i.imgur.com/WWnicKw.png',
+  blackpill: 'https://i.imgur.com/nCgeolT.png',
+  bluepill: 'https://i.imgur.com/mpiVwDX.jpg',
   msys: 'https://msys.qmk.fm/',
   coc: 'https://qmk.fm/coc/',
   kbdfans: 'Against our best advice, KBDfans have chosen a less than ideal bootloader for their newer board revisions. You may have luck using <https://tinyurl.com/KBDFansFlashNew> for reference, but if you are still stuck you will have to visit KBDfans discord for support: <https://discord.gg/kbdfans>',
   vid: 'https://yanfali.github.io/qmk_usb_usage/',
   vidq: 'https://www.the-sz.com/products/usbid/index.php',
+  lighting: '**Backlight:** Single color, per key, not individually addressable (all on or off)\n**RGBLight:** Underglow RGB, linear design (single chain), individually addressable\n**LED Matrix:** Single color, per key, individually addressable\n**RGB Matrix:** RGB, per key, individually addressable\n**Indicators:** Scroll/Caps/Num Lock LEDs',
 
   cooldown: [],
   authroles: ['Directors', 'Collaborators'],
