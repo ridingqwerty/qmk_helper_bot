@@ -23,7 +23,7 @@ bot.on('ready', () => {
 bot.on('message', message => {
 
   // Destructure discord.js elements
-  const { content, author, channel, member, id} = message;
+  const { content, author, channel, member, id, guild} = message;
 
   // Bot ignores itself while it talks
   if(author.bot) return;
@@ -191,6 +191,44 @@ bot.on('message', message => {
         //channel.send(bare(vidq));
 	cmdmsg.addFields({ name:  "Query VID/PID usage here:", value: vidq });
 	channel.send(cmdmsg);
+	break;
+
+      case 'breakingchanges': // subscribe to breaking changes group
+	//await rMember.roles.add(role.id).catch((e) => console.log(e));
+        //guildMember.addRole(guildMember.guild.roles.find(role => role.name === "ew"));
+	//var nick = (message.member === null)? message.author.username : message.member.displayName; 
+        //if ((member.roles.some(r=>authroles.includes(r.name))) && !cooldown.includes(doc)) {
+	//(message.member === null)? message.author.username : message.member.displayName; 
+	//if (message.member !== null) member.addRole(member.roles.find(role => role.name === "BreakingChanges"));
+	//if (message.member !== null) member.addRole(member.guild.roles.find(role => role.name === "Netcarrier"));
+	//console.log(member.guild.roles)
+	//console.log(member.guild.roles.cache.find(role => role.name === "Surprised"))
+	//if (message.member !== null) member.roles.add(member.guild.roles.find(role => role.name === "Netcarrier"));
+	//if (message.member !== null) member.roles.add(member.guild.roles.cache.find(role => role.name === "Netcarrier"));
+	//const role = message.guild.roles.find('name', 'Surprised');
+	//const role = message.guild.roles.cache.find('name', 'Surprised');
+	//const role = message.guild.roles.cache.find('Surprised');
+        //if (message.member !== null) member.addRole(role);
+        //member.addRole(role);
+	//
+	//await rMember.roles.add(role.id).catch((e) => console.log(e));
+	//let role = message.guild.roles.find(r => r.name === "Surprised");  // v11
+	let role = message.guild.roles.cache.find(r => r.name === "Surprised");
+	console.log(role);
+        // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
+        //let member = message.mentions.members.first();
+        // or the person who made started the command: let member = message.member;
+        //adds the role
+	//console.log(role.name);
+	//console.log(member);
+	//console.log(author);
+	//console.log(member);
+        //member.roles.add(role)
+        //message.author.roles.add(role)
+        //author.addRoles(role)
+	//message.member.roles.add(role.id)
+	console.log(message.member.permissions)
+	
 	break;
     }
   
