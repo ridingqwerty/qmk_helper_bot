@@ -58,7 +58,7 @@ bot.on('message', message => {
 	  ],
 	  footer: {
 	    icon_url: `https://cdn.discordapp.com/avatars/${author.id}/${author.avatar}.png?size=256`,
-	    text: `${nick} invoked !${doc}`,
+	    text: `${nick} invoked !${cmd}`,
 	  }
 	};
 
