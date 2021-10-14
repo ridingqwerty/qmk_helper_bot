@@ -10,7 +10,7 @@ const helpmessage =  [
   },
   {
     name: "**Building, Flashing, Drivers**",
-    value: "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing, msys, vid, vidq, promicro, protonc, elitec, blackpill, bluepill"
+    value: "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing, msys, vid, vidq, promicro, protonc, elitec, blackpill, bluepill, wrong-drivers"
   },
   {
     name: "**QMK CLI**",
@@ -26,7 +26,7 @@ const helpmessage =  [
   },
   {
     name: "**Software Features**",
-    value: "auto-shift, combos, debounce, key-lock, key-overrides, layers, one-shot-keys, pointing-device, swap-hands, tap-dance, tap-hold, terminal, unicode, wpm"
+    value: "auto-shift, combos, debounce, key-lock, key-overrides, layers, one-shot-keys, pointing-device, swap-hands, tap-dance, tap-hold, terminal, unicode, wpm, sync-options, intercept-taps, eehands, handedness"
   },
   {
     name: "**Hardware Features**",
@@ -34,7 +34,7 @@ const helpmessage =  [
   },
   {
     name: "**Other Information**",
-    value: "lighting, mcus, contributing, translating, config-options, understanding-keyboards, understanding-matrix, understanding-qmk, conduct"
+    value: "lighting, mcus, contributing, translating, config-options, understanding-keyboards, understanding-matrix, understanding-qmk, conduct, kbdfans, sonix, openrgb, vial, input-language"
   }];
 
 // Construct plaintext help menu fallback
@@ -130,7 +130,12 @@ module.exports = {
     "configoptions": "config_options",
     "understandingkeyboards": "how_keyboards_work",
     "understandingmatrix": "how_a_matrix_works",
-    "understandingqmk": "understanding_qmk"
+    "understandingqmk": "understanding_qmk",
+    "wrongdrivers": "driver_installation_zadig?id=recovering-from-installation-to-wrong-device",
+    "eehands": "feature_split_keyboard?id=handedness-by-eeprom",
+    "handedness": "feature_split_keyboard?id=setting-handedness",
+    "syncoptions": "feature_split_keyboard?id=data-sync-options",
+    "intercepttaps": "mod_tap?id=intercepting-mod-taps"
   })[docs],
 
   // Format embedded message
@@ -162,21 +167,64 @@ module.exports = {
   bluepill: 'https://i.imgur.com/mpiVwDX.jpg',
   msys: 'https://msys.qmk.fm/',
   coc: 'https://qmk.fm/coc/',
-  kbdfans: 'Against our best advice, KBDfans have chosen a less than ideal bootloader for their newer board revisions. You may have luck using <https://tinyurl.com/KBDFansFlashNew> for reference, but if you are still stuck you will have to visit KBDfans discord for support: <https://discord.gg/kbdfans>',
+  kbdfans: 'Against our best advice, KBDfans have chosen a less than ideal bootloader for their newer board revisions. The latest QMK Toolbox does support it which can be downloaded from <https://github.com/qmk/qmk_toolbox/releases>. Otherwise you may have luck using <https://tinyurl.com/KBDFansFlashNew> for reference, but if you are still stuck you will have to visit KBDfans discord for support: <https://discord.gg/kbdfans>',
+  sonixinvite: 'https://discord.gg/q8VjhRgzRw',
+  sonix: 'Support is maintained in another fork and is not part of QMK yet.\n\nGitHub: <https://github.com/SonixQMK/>\nDiscord: ',
+  openrgbinvite: 'https://discord.com/invite/AQwjJPY',
+  openrgb: 'Support is maintained in another fork and is not part of QMK yet.\n\nSite: <https://openrgb.org/>\nGitHub: <https://github.com/Kasper24/QMK-OpenRGB>\nDiscord: ',
+  vialinvite: 'https://discord.gg/6Ybrtvj6Ae',
+  vial: 'Support is maintained in another fork and is not part of QMK yet.\n\nSite: <https://get.vial.today/>\nGitHub: <https://github.com/vial-kb/vial-qmk>\nDiscord: ',
   vid: 'https://yanfali.github.io/qmk_usb_usage/',
   vidq: 'https://www.the-sz.com/products/usbid/index.php',
   lighting: '**Backlight:** Single color, per key, not individually addressable (all on or off)\n**RGBLight:** Underglow RGB, linear design (single chain), individually addressable\n**LED Matrix:** Single color, per key, individually addressable\n**RGB Matrix:** RGB, per key, individually addressable\n**Indicators:** Scroll/Caps/Num Lock LEDs',
-
+  markdown: 'Inserting triple backticks at the beginning and end of your code will create a code block. You can specify a language after the first triple back tick, applicable options would be c, make, python and markdown.\n \n\\\`\\\`\\\`c\n\`\`\`c\nif (is_fancy_example) {\n   return false;\n}\n\`\`\`\n\\\`\\\`\\\`',
+  inputlanguage: 'Keyboards don\'t send characters, they send keycodes. The input language set by the OS maps those keycodes to characters. If you have swapped round the keys in your keyboard firmware try setting your OS input language to English, otherwise make sure you have the correct input language selected in your OS.\n\nThere are also keymap header files that map specific languages to keycodes. Follow this link for more information <https://docs.qmk.fm/#/reference_keymap_extras?id=language-specific-keycodes>',
+  standards: 'https://imgs.xkcd.com/comics/standards.png',
+  snip: 'https://i.imgur.com/Us2oNzW.png',
   cooldown: [],
-  authroles: ['Directors', 'Collaborators'],
+  authroles: ['Directors', 'Collaborators', 'Mods'],
 
   // Parser
   parse: function(string) {
-    return string.toLowerCase().substring(1).replace(/[^a-z\-]+/g, '').split(/ +/g);
+    return string.toLowerCase().substring(1).replace(/[^a-z\- ]+/g, '').split(/ +/g, 2);
   },
 
   // Bare link constructor (inhibits embeds)
   bare: function(string) {
     return `<${string}>`;
+  },
+
+/**
+ * @param {string} string - Text inside code block
+ * @param {string} format - Language for code block
+ * @param {string} author - Authors name
+ * @param {string} invoker - Invokers name
+ */
+  automark: function (string, format, author, invoker) {
+    return `\`\`\`${format}\n// original message by ${author}, send !markdown in discord for instructions to create code blocks.\n\n${string}\n\n// ${invoker} invoked !mdlast\`\`\``;
+  },
+
+/**
+ * @param {GuildMember} guildmember - Member to check
+ * @param {string} rolenames - Array of role names to check
+ */
+  checkrole: function (guildmember, rolenames) {
+    return guildmember.roles.cache.find(r => rolenames.includes(r.name))
+  },
+
+/**
+ * @param {Client} client - Connected client to use
+ * @param {string} inviteurl - Invite url to grab icon from
+ */
+  iconfrominvite: async function (client, inviteurl) {
+    var icon = client.fetchInvite(inviteurl)
+      .then(invite => {
+        var icon = invite.guild.iconURL();
+        return icon;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    return icon;
   },
 };
