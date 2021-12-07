@@ -6,11 +6,11 @@ const helpmessage =  [
   },
   {
     name: "**FAQs**",
-    value: "faq, faq-build, faq-debug, faq-keymap, glossary"
+    value: "faq, faq-build, faq-debug, faq-keymap, squeeze-avr, glossary"
   },
   {
     name: "**Building, Flashing, Drivers**",
-    value: "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing, msys, vid, vidq, promicro, protonc, elitec, blackpill, bluepill, wrong-drivers"
+    value: "configurator, api, zadig, toolbox, flashing, flashing-bootloadhid, keymap, vagrant, ide-eclipse, ide-vscode, git, hand-wire, isp-flashing, msys, udev, vid, vidq, promicro, protonc, elitec, blackpill, bluepill, wrong-drivers"
   },
   {
     name: "**QMK CLI**",
@@ -30,11 +30,15 @@ const helpmessage =  [
   },
   {
     name: "**Hardware Features**",
-    value: "*Displays:* lcd, oled\n*Lighting:* backlight, led-matrix, rgblight, rgbmatrix\naudio, bluetooth, bootmagic, custom-matrix, dip-switch, encoders, haptic-feedback, ctpc, ps2-mouse, split-keyboard, stenography, velocikey"
+    value: "*Displays:* lcd, oled\n*Lighting:* backlight, led-matrix, rgblight, rgbmatrix, indicators\naudio, bluetooth, bootmagic, custom-matrix, dip-switch, encoders, haptic-feedback, joystick, ctpc, ps2-mouse, split-keyboard, stenography, velocikey"
+  },
+  {
+    name: "**Development Information**",
+    vale: "pr-checklist, breaking-changes, changelog, mcus, contributing"
   },
   {
     name: "**Other Information**",
-    value: "lighting, mcus, contributing, translating, config-options, understanding-keyboards, understanding-matrix, understanding-qmk, conduct, kbdfans, sonix, openrgb, vial, input-language"
+    value: "lighting, translating, config-options, understanding-keyboards, understanding-matrix, understanding-qmk, conduct, kbdfans, sonix, openrgb, vial, input-language"
   }];
 
 // Construct plaintext help menu fallback
@@ -62,6 +66,7 @@ module.exports = {
     "faqbuild": "faq_build",
     "faqdebug": "faq_debug",
     "faqkeymap": "faq_keymap",
+    "squeeze-avr": "squeezing_avr",
     "glossary": "reference_glossary",
     "configurator": "newbs_building_firmware_configurator",
     "api": "api_overview",
@@ -119,11 +124,16 @@ module.exports = {
     "dipswitch": "feature_dip_switch",
     "encoders": "feature_encoders",
     "hapticfeedback": "feature_haptic_feedback",
+    "joystick": "feature_joystick",
+    "indicators": "feature_led_indicators",
     "ctpc": "proton_c_conversion",
     "ps2mouse": "feature_ps2_mouse",
     "splitkeyboard": "feature_split_keyboard",
     "stenography": "feature_stenography",
     "velocikey": "feature_velocikey",
+    "pr-checklist": "pr_checklist",
+    "breaking-changes": "breaking_changes",
+    "changelog": "ChangeLog/20211127",
     "mcus": "compatible_microcontrollers",
     "contributing": "contributing",
     "translating": "translating",
@@ -135,7 +145,8 @@ module.exports = {
     "eehands": "feature_split_keyboard?id=handedness-by-eeprom",
     "handedness": "feature_split_keyboard?id=setting-handedness",
     "syncoptions": "feature_split_keyboard?id=data-sync-options",
-    "intercepttaps": "mod_tap?id=intercepting-mod-taps"
+    "intercepttaps": "mod_tap?id=intercepting-mod-taps",
+    "udev": "faq_build?id=linux-udev-rules",
   })[docs],
 
   // Format embedded message
@@ -166,6 +177,7 @@ module.exports = {
   blackpill: 'https://i.imgur.com/nCgeolT.png',
   bluepill: 'https://i.imgur.com/mpiVwDX.jpg',
   msys: 'https://msys.qmk.fm/',
+  wsl: 'https://qmk.github.io/qmk_distro_wsl/',
   coc: 'https://qmk.fm/coc/',
   kbdfans: 'Against our best advice, KBDfans have chosen a less than ideal bootloader for their newer board revisions. The latest QMK Toolbox does support it which can be downloaded from <https://github.com/qmk/qmk_toolbox/releases>. Otherwise you may have luck using <https://tinyurl.com/KBDFansFlashNew> for reference, but if you are still stuck you will have to visit KBDfans discord for support: <https://discord.gg/kbdfans>',
   sonixinvite: 'https://discord.gg/q8VjhRgzRw',

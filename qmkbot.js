@@ -38,7 +38,7 @@ bot.on('message', message => {
     var cmd = args[0];
 
     // Get user's nickname, or fall back to default username
-    var nick = (message.member === null)? message.author.username : message.member.displayName; 
+    var nick = (message.member === null)? message.author.username : message.member.displayName;
 
     args.forEach(function(item) {
       //doc = docsSwitch(item);
@@ -234,6 +234,12 @@ bot.on('message', message => {
         channel.send(cmdmsg);
         break;
 
+      case 'wsl':  // send channel link to msys page
+                    // channel.send(bare(wsl));
+        cmdmsg.addFields({name: 'Get QMK WSL here:', value: wsl});
+        channel.send(cmdmsg);
+        break;
+
       case 'vid':  // send channel link to USB usage page
                    // channel.send(bare(vid));
         cmdmsg.addFields({name: 'View USB usage page here', value: vid});
@@ -284,7 +290,7 @@ bot.on('message', message => {
         cmdmsg.setImage(standards);
         channel.send(cmdmsg);
         break;
-      
+
       case 'snip':  // send xkcd standards
         //channel.send(snip);
         cmdmsg.setImage(snip);
