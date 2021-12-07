@@ -128,7 +128,8 @@ bot.on('message', message => {
         channel.send(cmdmsg);
         break;
 
-      case 'conduct':  // send channel a link to https://qmk.fm/coc/
+      case 'conduct':
+      case 'coc':      // send channel a link to https://qmk.fm/coc/
                        // channel.send(coc);
         cmdmsg.addFields({name: 'Review QMK Code of Conduct:', value: coc});
         channel.send(cmdmsg);
