@@ -34,7 +34,7 @@ const helpmessage =  [
   },
   {
     name: "**Development Information**",
-    vale: "pr-checklist, breaking-changes, changelog, mcus, contributing"
+    value: "pr-checklist, breaking-changes, changelog, mcus, contributing"
   },
   {
     name: "**Other Information**",
@@ -66,7 +66,7 @@ module.exports = {
     "faqbuild": "faq_build",
     "faqdebug": "faq_debug",
     "faqkeymap": "faq_keymap",
-    "squeeze-avr": "squeezing_avr",
+    "squeezeavr": "squeezing_avr",
     "glossary": "reference_glossary",
     "configurator": "newbs_building_firmware_configurator",
     "api": "api_overview",
@@ -131,8 +131,8 @@ module.exports = {
     "splitkeyboard": "feature_split_keyboard",
     "stenography": "feature_stenography",
     "velocikey": "feature_velocikey",
-    "pr-checklist": "pr_checklist",
-    "breaking-changes": "breaking_changes",
+    "prchecklist": "pr_checklist",
+    "breakingchanges": "breaking_changes",
     "changelog": "ChangeLog/20211127",
     "mcus": "compatible_microcontrollers",
     "contributing": "contributing",
