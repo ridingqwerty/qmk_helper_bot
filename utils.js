@@ -38,7 +38,7 @@ const helpmessage =  [
   },
   {
     name: "**Other Information**",
-    value: "lighting, translating, config-options, understanding-keyboards, understanding-matrix, understanding-qmk, conduct, kbdfans, sonix, openrgb, vial, input-language"
+    value: "lighting, translating, config-options, understanding-keyboards, understanding-matrix, understanding-qmk, conduct, kbdfans, sonix, openrgb, vial, input-language, zmk"
   }];
 
 // Construct plaintext help menu fallback
@@ -195,6 +195,8 @@ module.exports = {
   snip: 'https://i.imgur.com/Us2oNzW.png',
   cooldown: [],
   authroles: ['Directors', 'Collaborators', 'Mods'],
+  zmk: 'Information and support for ZMK firmware fan be found here:.\n\nSite: <https://zmk.dev/>\nGitHub: <https://github.com/zmkfirmware/zmk/>\nDiscord: ',
+  zmkinvite: 'https://discord.com/invite/sycytVQ',
 
   // Parser
   parse: function(string) {
