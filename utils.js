@@ -195,7 +195,7 @@ module.exports = {
   snip: 'https://i.imgur.com/Us2oNzW.png',
   cooldown: [],
   authroles: ['Directors', 'Collaborators', 'Mods'],
-  zmk: 'Information and support for ZMK firmware fan be found here:.\n\nSite: <https://zmk.dev/>\nGitHub: <https://github.com/zmkfirmware/zmk/>\nDiscord: ',
+  zmk: 'Information and support for ZMK firmware can be found here:\n\nSite: <https://zmk.dev/>\nGitHub: <https://github.com/zmkfirmware/zmk/>\nDiscord: ',
   zmkinvite: 'https://discord.com/invite/sycytVQ',
 
   // Parser
