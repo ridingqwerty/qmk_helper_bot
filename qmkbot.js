@@ -303,6 +303,11 @@ bot.on('message', message => {
         channel.send(cmdmsg);
         break;
 
+      case 'prstatus': // where is your PR?
+        cmdmsg.addFields({name: 'When will my pull request be merge?\n', value: prstatus});
+	channel.send(cmdmsg);
+	break;
+
       case 'snip':  // send xkcd standards
         //channel.send(snip);
         cmdmsg.setImage(snip);
