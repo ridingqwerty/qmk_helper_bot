@@ -197,6 +197,8 @@ module.exports = {
   authroles: ['Directors', 'Collaborators', 'Mods'],
   zmk: 'Information and support for ZMK firmware can be found here:\n\nSite: <https://zmk.dev/>\nGitHub: <https://github.com/zmkfirmware/zmk/>\nDiscord: ',
   zmkinvite: 'https://discord.com/invite/sycytVQ',
+  prstatus: 'You asked about the status of your PR.\n\nWhile we know that your PR is important to you, it may take some time for us to get to your PR.\n\nPull Request reviews are something that is done in our free time. We are not paid nor compensated for the time we spend reviewing, as it is a labor of love. As such, this means that it can take time for us to get to your Pull Request. Things like family, or life can get in the way of us getting to PRs, and burnout is a serious consideration. The QMK firmware repository averages 200 PRs opened and 200 PRs merged every month, so please have patience.\n\nAlso, anyone can review PRs. And adding meaningful reviews to other PRs is a great way to contribute back.  This helps reduce the burden on collaboraters, as well. Which means that we may be able to get to your PR that much faster.',
+
 
   // Parser
   parse: function(string) {

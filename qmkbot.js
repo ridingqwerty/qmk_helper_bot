@@ -7,7 +7,7 @@ require('dotenv').config();
 const token = process.env.TOKEN;
 
 // Import utils.js
-const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit, git, xkcd, promicro, protonc, elitec, blackpill, bluepill, msys, coc, kbdfans, lighting, wsl, vid, vidq, automark, markdown, checkrole, sonixinvite, sonix, openrgbinvite, openrgb, vialinvite, vial, iconfrominvite, inputlanguage, standards, snip, zmk, zmkinvite} = require('./utils.js');
+const {prefix, baseurl, msg, docsSwitch, authroles, parse, bare, firmware, toolbox, plainhelp, disclaimer, ohshitgit, git, xkcd, promicro, protonc, elitec, blackpill, bluepill, msys, coc, kbdfans, lighting, wsl, vid, vidq, automark, markdown, checkrole, sonixinvite, sonix, openrgbinvite, openrgb, vialinvite, vial, iconfrominvite, inputlanguage, standards, snip, zmk, zmkinvite, prstatus} = require('./utils.js');
 let cooldown = require("./utils.js").cooldown;
 
 bot.on('ready', () => {
