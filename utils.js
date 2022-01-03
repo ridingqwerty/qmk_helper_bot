@@ -91,7 +91,7 @@ module.exports = {
     "command": "feature_command",
     "dynamicmacros": "feature_dynamic_macros",
     "graveescape": "feature_grave_esc",
-    "leader": "feature_leader",
+    "leader": "feature_leader_key",
     "modtap": "mod_tap",
     "macros": "feature_macros",
     "mousekeys": "feature_mouse_keys",
