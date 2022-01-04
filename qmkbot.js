@@ -304,7 +304,7 @@ bot.on('message', message => {
         break;
 
       case 'prstatus': // where is your PR?
-        cmdmsg.addFields({name: 'When will my pull request be merge?\n', value: prstatus});
+        cmdmsg.addFields({name: 'When will my pull request be merged?\n', value: prstatus});
 	channel.send(cmdmsg);
 	break;
 
