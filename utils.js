@@ -184,7 +184,7 @@ module.exports = {
   sonix: 'Support is maintained in another fork and is not part of QMK yet.\n\nGitHub: <https://github.com/SonixQMK/>\nDiscord: ',
   openrgbinvite: 'https://discord.com/invite/AQwjJPY',
   openrgb: 'Support is maintained in another fork and is not part of QMK yet.\n\nSite: <https://openrgb.org/>\nGitHub: <https://github.com/Kasper24/QMK-OpenRGB>\nDiscord: ',
-  vialinvite: 'https://discord.gg/6Ybrtvj6Ae',
+  vialinvite: 'https://discord.gg/zNKEUXTKwF',
   vial: 'Support is maintained in another fork and is not part of QMK yet.\n\nSite: <https://get.vial.today/>\nGitHub: <https://github.com/vial-kb/vial-qmk>\nDiscord: ',
   vid: 'https://yanfali.github.io/qmk_usb_usage/',
   vidq: 'https://www.the-sz.com/products/usbid/index.php',
